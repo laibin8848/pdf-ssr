@@ -1,0 +1,28 @@
+{
+  "name": "pdf-sr",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "ep": "next export",
+    "proxy": "node proxy.js"
+  },
+  "dependencies": {
+    "antd": "^4.17.2",
+    "axios": "^0.24.0",
+    "babel-plugin-import": "^1.13.3",
+    "next": "12.0.4",
+    "pdfjs-dist": "^2.0.943",
+    "qrious": "^4.0.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "7",
+    "eslint-config-next": "12.0.4",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.1"
+  }
+}

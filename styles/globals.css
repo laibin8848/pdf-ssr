@@ -1,0 +1,199 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.pdf-multiple-card {
+  display: flex;
+  width: 70%;
+  height: auto;
+  flex-wrap: wrap;
+}
+.pdf-multiple-card canvas {
+  margin-top: 20px;
+}
+
+.pdf-card {
+    background: #f6f6f8;
+    -webkit-box-shadow: 0 0 4px 0 rgb(0 0 0 / 20%);
+    box-shadow: 0 0 4px 0 rgb(0 0 0 / 20%);
+    margin: 4px;
+    width: 198px;
+    height: 244px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+.pdf-card .selctIcon {
+  position: absolute;
+  right: 10px;
+}
+.pdf-card .canvas {
+  margin-top: 20px;
+}
+.pdf-card .canvas-title {
+  margin-top: 10px;
+  white-space:nowrap;text-overflow:ellipsis;overflow:hidden;
+  width: 90%;
+}
+.pdf-card:hover {
+  background: #fff;
+}
+.global-layout {
+  height: 100vh;
+  overflow: hidden;
+}
+.global-layout-nav {
+  width: 100vw;
+  height: 60px;
+  top: 0;
+  position: fixed;
+  z-index: 999;
+  -webkit-box-shadow: 0 0 4px 0 rgb(0 0 0 / 50%);
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 50%);
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+.global-layout-nav .user-info {
+  flex: 1;
+  text-align: right;
+  padding-right: 20px;
+}
+.global-layout-main {
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+  transform: scale(2);
+  border: none;
+  background: rgba(0, 0, 0, 0) url("../static/sprite.svg");
+  display: block;
+}
+
+.MergePDF {
+  background-position: -5px -5px;
+}
+
+.SplitPDF {
+  background-position: -5px -30px;
+}
+
+.CompressPDF {
+  background-position: -5px -130px;
+}
+
+.PDFtoWord {
+  background-position: -5px -305px;
+}
+
+.PDFtoPowerpoint {
+  background-position: -5px -330px;
+}
+.PDFtoExcel {
+  background-position: -30px -305px;
+}
+
+.WordtoPDF {
+  background-position: -5px -205px;
+}
+
+.PowerpointtoPDF {
+  background-position: -5px -230px;
+}
+
+.ExceltoPDF {
+  background-position: -5px -255px;
+}
+.EditPDF {
+  background-position: -5px -630px;
+}
+
+.PDFtoJPG {
+  background-position: -5px -280px;
+}
+.JPGtoPDF {
+  background-position: -5px -180px;
+}
+.Pagenumbers {
+  background-position: -5px -405px;
+}
+.Watermark {
+  background-position: -5px -430px;
+}
+.RotatePDF {
+  background-position: -5px -380px;
+}
+.HTMLtoPDF {
+  background-position: -5px -530px;
+}
+.ProtectPDF {
+  background-position: -5px -480px;
+}
+.UnlockPDF {
+  background-position: -5px -455px;
+}
+.OrganizePDF {
+  background-position: -5px -105px;
+}
+
+.PDFtoPDFA {
+  background-position: -5px -505px;
+}
+
+.RepairPDF {
+  background-position: -5px -155px;
+}
+
+.SignPDF {
+  background-position: -5px -555px;
+}
+.item-box {
+  background: #fff;
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  margin: 40px;
+  margin-top: -80px;
+  flex-wrap: wrap;
+  -webkit-box-shadow: 0 2px 10px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 10%);
+}
+.item-box-item {
+  padding: 30px;
+  border-bottom: 1px rgb(240, 229, 229) solid;
+  border-right: 1px rgb(240, 229, 229) solid;
+  cursor: pointer;
+  color: #383e45;
+  flex: 0 0 20%;
+}
+.item-box-item:hover {
+  background: rgb(240, 232, 232);
+}
+.item-box-item:hover .icon {
+  transform: scale(2.2);
+}
+
+@media (max-width: 600px) {
+  .item-box-item {
+    flex: 0 0 50%;
+  }
+}

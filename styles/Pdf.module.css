@@ -1,0 +1,34 @@
+.container {
+  background: #f3f0ec;
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 60px);
+}
+.mainPannel {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  margin-top: 20px;
+  overflow: auto;
+  height: 100%;
+  padding-bottom: 40px;
+}
+.fileCards {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: auto;
+}
+.plusBtn {
+  position:absolute;
+  top: 30px;
+  right: 10px;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
