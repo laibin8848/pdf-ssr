@@ -16,7 +16,7 @@ export default function WechatLogin ({onDone}) {
                 getScanInfo(res.data.uid).then(res=> {
                     if(res.data) {
                         clearInterval(wechatLoginTimer)
-                        onDone(res.data.token)
+                        onDone(res.data)
                     }
                 })
             }, 3000)
