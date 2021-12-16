@@ -1,13 +1,16 @@
-import { Form, Input, Button, Checkbox } from 'antd'
+import { Form, Input, Button } from 'antd'
+import SendCode from '../common/send-code'
+import { accountLogin } from '../../services/account'
 
-export default function PwdLogin ({onDone}) {
+
+export default function PwdLogin ({onDone, codeLogin, pwdLogin}) {
 
     return (
         <div>
             <Form
                 name="basic"
-                labelCol={{ span: 4 }}
-                wrapperCol={{ span: 18 }}
+                labelCol={{ span: 5 }}
+                wrapperCol={{ span: 21 }}
                 initialValues={{ remember: true }}
                 autoComplete="off"
             >
@@ -18,21 +21,34 @@ export default function PwdLogin ({onDone}) {
                 >
                     <Input />
                 </Form.Item>
-
-                <Form.Item
-                    label="密码"
-                    name="password"
-                    rules={[{ required: true, message: 'Please input your password!' }]}
-                >
-                    <Input.Password />
-                </Form.Item>
-
-                <Form.Item>
-                    <Button type="primary" htmlType="submit">
-                        登录
-                    </Button>
-                </Form.Item>
+                {
+                    pwdLogin && (
+                        <Form.Item
+                            label="密码"
+                            name="password"
+                            rules={[{ required: true, message: 'Please input your password!' }]}
+                        >
+                            <Input.Password />
+                        </Form.Item>
+                    )
+                }
+                {
+                    codeLogin && (
+                        <Form.Item
+                            label="验证码"
+                            name="password"
+                            rules={[{ required: true, message: 'Please input your password!' }]}
+                        >
+                            <Input suffix={<SendCode seconeds={10} />} />
+                        </Form.Item>
+                    )
+                }
             </Form>
+            <div>
+                <Button type="primary" htmlType="submit">
+                    登录
+                </Button>
+            </div>
         </div>
     )
 }
