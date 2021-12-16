@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import pdfStyles from '../styles/Pdf.module.css'
 import Uploader from '../components/common/uploader'
 import PdfCard from '../components/pdf/pdf-card'
-import { pageConfig } from '../util/utils'
+import { pageConfig, vipRule } from '../util/utils'
 import { useRouter } from 'next/router'
 import OptionalPanelGen from '../components/pdf/option-panel'
 
@@ -15,6 +15,11 @@ export default function Pdf() {
     name: 'files',
     showUploadList: false,
     onChange: ({fileList})=> {
+      //todo, check user login and VIP here
+      if(!vipRule()) {
+        document.getElementById('login-btn').click()
+        return
+      }
       setFileList(fileList)
     },
     fileList: fileList

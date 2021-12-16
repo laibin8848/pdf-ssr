@@ -36,6 +36,9 @@ service.interceptors.response.use(
     // } else {
     //   return res
     // }
+  },
+  error => {
+    return {}
   }
 )
 

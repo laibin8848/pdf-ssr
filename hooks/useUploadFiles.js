@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { upload, transFiles, searchTask } from '../services/trans'
+import { vipRule } from '../util/utils'
 
 let searchTaskTimer = null
 
@@ -9,6 +10,11 @@ export default function useStartJob() {
     const [result, setResult] = useState(null)
     
     function doUpload(fileList, params, type) {
+        //todo, check user login and VIP here
+        if(!vipRule()) {
+            document.getElementById('login-btn').click()
+            return
+        }
         setLoading(true)
         const post = new FormData()
         fileList.map(item=> post.append('files', item.originFileObj))

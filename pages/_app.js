@@ -31,7 +31,7 @@ function UserInfo() {
               }
             })
           }
-        }>{loginInfo.user ? loginInfo.user.username : ''}</span> : <span onClick={()=> { useOpenModal(LoginBox, {onOk: ()=> { setRefresh(Math.random()) }}) }}>登录</span>
+        }>{loginInfo.user ? loginInfo.user.username : ''}</span> : <span id='login-btn' onClick={()=> { useOpenModal(LoginBox, {onOk: ()=> { setRefresh(Math.random()) }}) }}>登录</span>
       }
     </div>
   )

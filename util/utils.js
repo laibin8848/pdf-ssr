@@ -32,7 +32,7 @@ export const pageConfig = (type) => {
             break
         case '26':
             pageInfo.title = 'PDF权限限制'
-            pageInfo.desc = 'PDF权限限制'
+            pageInfo.desc = '为您的PDF添加权限限制，以便您按照自己的需求使用它。'
             break
         case '10':
             pageInfo.title = 'PDF转WORLD'
@@ -81,7 +81,6 @@ export const getLoginInfo = () => {
         return {}
     }
     const user = localStorage.getItem('user')
-    console.log('xx', JSON.parse(user))
     return {
         token: localStorage.getItem('token'),
         user: JSON.parse(user)
@@ -93,4 +92,9 @@ export const loginOut = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
     }
+}
+
+export const vipRule = ()=> {
+    const loginInfo = getLoginInfo()
+    return loginInfo.token
 }
