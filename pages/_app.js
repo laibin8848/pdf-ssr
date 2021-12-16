@@ -6,13 +6,13 @@ import { CaretDownOutlined } from '@ant-design/icons'
 import LoginBox from '../components/auth/login-box'
 import useOpenModal from '../hooks/useOpenModal'
 import { useState, useEffect } from 'react'
-import { getLoginInfo } from '../util/utils'
+import { getLoginInfo, loginOut } from '../util/utils'
 
 const { SubMenu } = Menu
 
 function UserInfo() {
   const [refresh, setRefresh] = useState('')
-  const [loginInfo, setLoginInfo] = useState('')
+  const [loginInfo, setLoginInfo] = useState({})
 
   useEffect(()=> {
     setLoginInfo(getLoginInfo())
@@ -21,7 +21,12 @@ function UserInfo() {
   return (
     <>
       {
-        loginInfo ? 'fuck you' : <span onClick={()=> { useOpenModal(LoginBox, {onOk: ()=> { setRefresh(Math.random()) }}) }}>登录</span>
+        loginInfo.token ? <span onClick={
+          ()=> {
+            loginOut()
+            setRefresh(Math.random())
+          }
+        }>{loginInfo.user ? loginInfo.user.username : ''}</span> : <span onClick={()=> { useOpenModal(LoginBox, {onOk: ()=> { setRefresh(Math.random()) }}) }}>登录</span>
       }
     </>
   )

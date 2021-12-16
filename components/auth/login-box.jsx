@@ -14,7 +14,7 @@ export default function LoginBox(props) {
         // accountMine().then(res=> {
         //     console.log('res', res)
         // })
-        setLoginInfo(data.token)
+        setLoginInfo(data)
         message.success({
             content: '登录成功！',
             style: {marginTop: '20vh'}

@@ -69,17 +69,28 @@ export const customerMsg = (content) => {
     })
 }
 
-export const setLoginInfo = (token) => {
-    localStorage && localStorage.setItem('token', token)
+export const setLoginInfo = (data) => {
+    if(localStorage) {
+        localStorage.setItem('token', data.token)
+        localStorage.setItem('user', JSON.stringify(data.user))
+    } 
 }
 
 export const getLoginInfo = () => {
     if(typeof window === undefined) {
-        return ''
+        return {}
     }
-    return localStorage.getItem('token')
+    const user = localStorage.getItem('user')
+    console.log('xx', JSON.parse(user))
+    return {
+        token: localStorage.getItem('token'),
+        user: JSON.parse(user)
+    }
 }
 
 export const loginOut = () => {
-    localStorage && localStorage.removeItem('token')
+    if(localStorage) {
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+    }
 }
