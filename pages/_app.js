@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import 'antd/dist/antd.min.css'
-import { Menu } from 'antd'
+import { Menu, Modal } from 'antd'
 import Link from 'next/link'
 import { CaretDownOutlined } from '@ant-design/icons'
 import LoginBox from '../components/auth/login-box'
@@ -19,16 +19,21 @@ function UserInfo() {
   }, [refresh])
 
   return (
-    <>
+    <div style={{cursor: 'pointer'}}>
       {
         loginInfo.token ? <span onClick={
           ()=> {
-            loginOut()
-            setRefresh(Math.random())
+            Modal.confirm({
+              content: '是否退出登录？',
+              onOk: ()=> {
+                loginOut()
+                setRefresh(Math.random())
+              }
+            })
           }
         }>{loginInfo.user ? loginInfo.user.username : ''}</span> : <span onClick={()=> { useOpenModal(LoginBox, {onOk: ()=> { setRefresh(Math.random()) }}) }}>登录</span>
       }
-    </>
+    </div>
   )
 }
 
